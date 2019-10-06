@@ -71,16 +71,16 @@
 <tr>
 <td>
 		<ol>
-		<li>Southern Resident Killer Whale (SRKW) Task Force recommendations
+		<li>Nov. 2018 Southern Resident Killer Whale (SRKW) Task Force recommendations
 			<ul>
 			<li>#17,21,26: go slow, silence depth sounders, & stay back near orcas 
 			<li>#20,22: fund & increase WDFW enforcement
 			<li>#22-23: reduce ship & ferry noise near orcas
 			<li>#24-25: reduce impacts of oil spills & Naval activities
 			</ul>
-		<li>2019 WA State laws require 7 knots within 1000m (1/2 mile) of orcas (geofence?)
-		<li>Alert rapid-response researchers, enforcement, & management
-		<li>Inform both listening and sighting networks & other educational outreach activities
+		<li>Spring 2019 WA State laws & <a href="http://bewhalewise.org">Be Whale Wise</a> guidance
+		<li>Geofences for researchers, enforcement, & management?
+		<li>Alerts for listening & sighting networks, and other educational activities?
 		</ol>
 </td>
 <td>
@@ -138,7 +138,7 @@
       <h2>Orcasound software evolution</h2>
 <h5>2017 challenge: Can we make it easy to listen, cloud-based, & scalable?</h5>
 
-<p>Free open-source software to stream audio that "just works" on all devices/browsers</p>
+<p>Free open-source software streams audio that "just works" on most (85% of) devices/browsers</p>
   <img src="content/screenshot-s3.png" height="500" align="right"><p>
 <ul>
   <li>Linux, Docker
@@ -148,9 +148,9 @@
     <li>Compressed, lossless: FLAC (<a href="https://xiph.org/flac/">Free Lossless Audio Codec</a>)</li>
   </ul>
 </ul>
-<p>Amazon S3 for archiving data in the cloud</p>
+<p>Data stored within Amazon S3 buckets</p>
 <ul>
-  <li><b>s3fs</b> -- uploads data files and "manifest" to Simple Storage Services (S3)</li>
+  <li><b>s3fs</b> -- uploads data files & "manifest" to Simple Storage Services (S3)</li>
   <li>FLAC filenames contain UTC timestamp</li>
 </ul>
 <p><a href="https://github.com/orcasound/orcanode">Orcanode Github repository</a></p>
@@ -158,7 +158,7 @@
 
 
     <section class="slide">
-        <h2>Demonstration #1</h2>
+        <h2>Demonstration #1 (notice static maps!)</h2>
 	<h5>Make “listening for whales” interactive & inform real-time end-users</h5>
         <center>
         <p>For free live-listening, browse to: <a href="http://live.orcasound.net">live.orcasound.net</a></p>
@@ -230,12 +230,11 @@
     </section>
 
     <section class="slide">
-        <center>
-                <h2>Orca Network</h2>
-                <h5>Add some stats about sighting network density & activity levels</h5>
+                <h2>The need for Orcamap</h2>
+                <h5>What (open-source) tool could georeference, vet, & visualize sightings (in near-real-time)?</h5>
                 <center>
-		<p>Add a table of providers/users, or a digital version of the US/Canada Provider/End-user graphic?</p>
-                <img src="content/">
+                <img src="content/satmap0819zoomPS.png">
+		<p>Monthly map (Aug 2019) of marine mammal occurence from Orca Network.</p>
                 </center>
     </section>
 
@@ -243,16 +242,30 @@
     <section class="slide">
         <center>
                 <h2>Demonstration #2</h2>
-                <h5>Orcamap front and back end</h5>
-                <center>
-		<p>Add screen grabs?</p>
-                <img src="content/">
-                </center>
+                <h5>Orcamap with collaborative vetting in Google sheets</h5>
+        <center>
+        <table>
+        <col style="width:50%">
+        <col style="width:50%">
+	  <tr>
+	    <td>
+		<h6>Front end</h6>
+		<p>Node.js site using Mapbox</p>
+		<img src="content/orcamap-3marker-types.png" hspace="10">
+	    </td>
+            <td align="center">
+		<h6>Back end & vetting</h6>
+		<p>Google spreadsheet</p>
+		<img src="content/orcamap-Gsheet.png" hspace="10">
+	    </td>
+          </tr>
+        </table>
+        </center>
     </section>
 
 
     <section class="slide">
-                <h2>What's next for Orcamap</h2>
+                <h2>What's next for Orcamap?</h2>
                 <h5>Vision & invitation to contribute</h5>
         <center>
         <table>
@@ -260,16 +273,24 @@
         <col style="width:50%">
 	  <tr>
 	    <td>
+		<h6>Next steps for Orcamap:</h6>
+<ul>
+<li> Find more contributors! (or funding!)
+<li> Prioritized feature requests
+<li> Integrate vetted sightings with hearings & other t,x,y SRKW data 
+</ul>
+
+&nbsp;
 		<h6>Orcamap resources</h6>
 <ul>
-<li> 
-<li>
-<li>
+<li> <a href="https://orcamap.slack.com">Orcamap Slack workspace</a>
+<li> <a href="https://github.com/orcasound/orcamap">Orcamap Github repository</a>
+<li> <a href="https://orcasound.slack.com">Orcasound Slack workspace</a> Over-all project coordination
 </ul>
 	    </td>
             <td align="center">
-		<h6>Orcasound roadmap (w/Orcamap filter)</h6>
-		<img src="content/.png" hspace="10">
+		<h6>Orcamap development - Trello board</h6>
+		<img src="content/orcamap-trello.png" hspace="10">
 	    </td>
           </tr>
         </table>
