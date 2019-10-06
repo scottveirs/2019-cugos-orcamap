@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>CUGOS Fall Fling 2019: Veirs talk on Orcamap</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="modernizr.custom.js"></script>
+
+
+<style type="text/css">
+  .highlight-red {color: red}
+  .highlight-yellow {color: yellow}
+  mark {
+    background-color: black;
+  }
+</style>
+
+</head>
+
+<body>
+  <div class="deck-container">
+
+    <!-- Begin slides. Just make elements with a class of slide. -->
+
+    <section class="slide">
+      	<center>
+	      	<h2>Orcamap: an open-source mapping system for endangered orcas</h2>
+	      	<img src="content/orca-ferry.png">
+	      	<h3>Scott Veirs, Orcasound hydrophone network</h3>
+	      	<h4>CUGOS Fall Fling Oct 6, 2019, at UW in Seattle</h4>
+	      	<div>
+			<audio preload="auto" controls="controls">
+	            	<source src="content/sounds/clear-calls-clicks.mp3" type="audio/mpeg">
+	      		</audio>
+		</div>
+	  	Slides at: <a href="http://orcasound.net/talks/2019-cugos-orcamap">orcasound.net/talks</a>
+    </center>
+    </section>
+
+    <section class="slide">
+	      	<h2>Motivations</h2>
+		<h3>A growing need for real-time locations of endangered orcas</h5>
+		<img src="content/bewhalewise.png">
+		<ol>
+		<li>Southern Resident Killer Whale (SRKW) Task Force recommendations
+			<ul>
+			<li>#17,21,26: go slow, silence depth sounders, & stay back near orcas 
+			<li>#20,22: fund increase WDFW enforcement
+			<li>#22-23: reduce ship & ferry noise near orcas
+			<li>#24-25: reduce impacts of oil spills and Naval activities
+		<li>2019 WA State laws require 7 knots within 1000m (1/2 mile) of orcas (geofence?)
+		<li>Alert rapid-response researchers, enforcement, & management
+		<li>Inform both listening and sighting networks & other educational outreach activities
+		</ol>
+<h5>About me:</h5>
+<ul>
+<li>UW Oceanography, PhD (2003)
+<li>15+ years SRKW bioacoustic research/teaching and coordinating Orcasound
+<li>Chair of Marine Mammal Work Group within the Puget Sound Ecosystem Monitoring Program
+</ul>
+    </section>
+
+
+    <section class="slide">
+	      	<h2>Orcasound</h2>
+		<h5>An evolving tool for SRKW conservation (& source of orca t,x,y data)</h5>
+		<img src="content/vesselnoise-roadmap.png">
+		<p>The product of 15 years of citizen scientists listening for whales, Orcasound is now a cooperative hydrophone network and an innovative open-source hardware/software project.
+    </section>
+
+
+ <section class="slide">
+      <h2>Orcasound 2019-2020 map and membership</h2>
+      <h5>Cooperative of researchers, educators, & citizen scientists</h5>
+<table>
+<col style="width:50%">
+<col style="width:50%">
+<tr>
+<td>
+<ol>
+<li> Orca Network	 
+<li> Port Townsend Marine Science Center
+<li> Beam Reach & Colorado College 	
+<li> The Center for Whale Research
+<li> The Whale Trail	
+<li> Oceans Initiative	
+<li> Orca Behavior Institute	 
+<li> Whale Scout	 
+<li> Deep Green Wilderness	
+<li> Friends of Lime Kiln Society (FOLKS)	
+<li> Cetacean Research Technology	 
+</ol>
+<p>Physical exhibits include: </b> Seattle Aquarium; Port Townsend Marine Science Center; Langley Whale Center; Lime Kiln Visitor's Center (via FOLKS)</p>
+</td>
+<td>
+<center>
+<mark><span style="color:red;">Past</span> | <span style="color:green;">Current</span> | <span style="color:yellow;">Planned (2020)</span></mark>
+        <img src="content/2020map.png"><p>
+</center>
+</td>
+</tr>
+</table>
+      <p>You can <a href="http://www.orcasoud.net/join/">join Orcasound</a>, too! Just e-sign the <a href="https://docs.google.com/document/d/1OdKOICgPNHy7CkaHjzWMztH_zNir4UlbZbOdKtyRwI0/edit">MOA</a> and heed the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA license</a>.</p>
+    </section>
+
+
+    <section class="slide">
+      <h2>Orcasound software evolution</h2>
+<h5>2017 challenge: Can we make it easy to listen, cloud-based, & scalable?</h5>
+
+<p>Free open-source software to stream audio that "just works" on all devices/browsers</p>
+  <img src="content/screenshot-s3.png" height="500" align="right"><p>
+<ul>
+  <li>Linux, Docker
+  <li><b>ffmpeg</b> -- encodes audio data in two formats:
+  <ul>
+    <li>Compressed & lossy: HLS segments (<a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming">HTTP Live Streaming</a>)</li>
+    <li>Compressed, lossless: FLAC (<a href="https://xiph.org/flac/">Free Lossless Audio Codec</a>)</li>
+  </ul>
+</ul>
+<p>Amazon S3 for archiving data in the cloud</p>
+<ul>
+  <li><b>s3fs</b> -- uploads data files and "manifest" to Simple Storage Services (S3)</li>
+  <li>FLAC filenames contain UTC timestamp</li>
+</ul>
+<p><a href="https://github.com/orcasound/orcanode">Orcanode Github repository</a></p>
+    </section>
+
+
+    <section class="slide">
+        <h2>Demonstration #1</h2>
+	<h5>Make “listening for whales” interactive & inform real-time end-users</h5>
+        <center>
+        <p>For free live-listening, browse to: <a href="http://live.orcasound.net">live.orcasound.net</a></p>
+
+        <table>
+        <col style="width:35%">
+        <col style="width:30%">
+        <col style="width:35%">
+          <tr align="center">
+            <td><img src="content/screenshot-live-tall.png" height="400" hspace="10"></td>
+            <td><img src="content/osv2-listen.png" height="400" hspace="10"></td>
+            <td><img src="content/osv2-admin-tall.png" height="400" hspace="10"></td>
+          </tr>
+        </table>
+        </center>
+        <p> Orcasound 1.0 player published Nov. 1, 2018. <a href="http://beta.orcasound.net">Orcasound 2.0 is in beta-testing</a> & will launch in fall, 2019.</p>
+    </section>
+
+
+<section class="slide">
+        <h2>Orcasound for tracking SRKWs</h2>
+	<h5>Cool tech: machine learning</h2>
+<center>
+<table>
+<col style="width:40%">
+<col style="width:40%">
+<tr>
+<td>&nbsp;<img src="content/machine-learning.png">
+</td>
+<td><h6>Emerging orca AI (in real-time?):</h6>
+  <ul>
+  <li> Orcasound's archive of train/test data
+  <li> Orcasound collaboration with UW and Microsoft with Dr. David Bain 
+  <li> Ocean Networks Canada workshops in November
+  <li> Meridian's Keta (open-source)
+  <li> ORCA-SPOT (trained on Orca Lab NRKW calls) 
+  <li> DFO+Google?
+  </ul>
+</td>
+</tr>
+</table>
+</center>
+</section>
+
+
+    <section class="slide">
+        <h2>Orcasound as a partner in tracking SRKWs</h2>
+        <h5>Synergy of real-time sighting and listening networks</h5>
+        <center>
+        <table>
+        <col style="width:50%">
+        <col style="width:50%">
+	  <tr>
+	    <td>
+&nbsp;
+<h6>Most recent SRKW "hearing"</h6>
+<ul>
+<li> Faint calls heard at Orcasound's Port Townsend & Bush Point nodes
+<li> Hearings anticipated through a heroic sighting effort of <a href="http://orcanetwork.org">Orca Network & many Puget Sound citizen scientists
+<li> 9 continuous days tracked in Sept, 2019!
+</ul>
+		<img src="content/on-fb-post.png" hspace="10">
+		<img src="content/on-community.png" hspace="10">
+	    </td>
+            <td align="center">
+<iframe src="https://www.google.com/maps/d/embed?mid=1xIsepZY5h_8oA2nd6IwJN-Y7lhk" width="640" height="480"></iframe>
+	    </td>
+          </tr>
+        </table>
+        </center>
+    </section>
+
+    <section class="slide">
+        <center>
+                <h2>Orca Network</h2>
+                <h5>Add some stats about sighting network density & activity levels</h5>
+                <center>
+		<p>Add a table of providers/users, or a digital version of the US/Canada Provider/End-user graphic?</p>
+                <img src="content/">
+                </center>
+    </section>
+
+
+    <section class="slide">
+        <center>
+                <h2>Demonstration #2</h2>
+                <h5>Orcamap front and back end</h5>
+                <center>
+		<p>Add screen grabs?</p>
+                <img src="content/">
+                </center>
+    </section>
+
+
+    <section class="slide">
+                <h2>What's next for Orcamap</h2>
+                <h5>Vision & invitation to contribute</h5>
+        <center>
+        <table>
+        <col style="width:50%">
+        <col style="width:50%">
+	  <tr>
+	    <td>
+		<h6>Orcamap resources</h6>
+<ul>
+<li> 
+<li>
+<li>
+</ul>
+	    </td>
+            <td align="center">
+		<h6>Orcasound roadmap (w/Orcamap filter)</h6>
+		<img src="content/.png" hspace="10">
+	    </td>
+          </tr>
+        </table>
+        </center>
+    </section>
+
+
+    <section class="slide">
+        <center>
+                <h2>Questions?</h2>
+	</center>
+    </section>
+
+
+
+
+    <section class="slide">
+        <center>
+                <h2></h2>
+                <h5></h5>
+                <center>
+                <img src="content/">
+                </center>
+    </section>
+
+
+
+
+    <section class="slide">
+        <h2>Orcasound for tracking SRKWs</h2>
+        <h5>Cool tech: new apps to help track marine life</h5>
+        <center>
+        <table>
+        <col style="width:50%">
+        <col style="width:50%">
+          <tr>
+            <td align="center"><p><a href="">Happy Whale</a></p><img src="content/scratchy-zoom.png" height="400" hspace="10"><p>Upload a fluke photo; AI yields an ID!</p></td>
+	    <td>
+ 
+	<p>Members of the PSEMP Marine Mammal Work Group, and organizational members of Orcasound, will continue to study, test, and develop these apps and other pioneering ways to share marine mammal location data within Washington and across the Salish Sea.</p>
+
+<p><a href="https://www.eventbrite.com/e/puget-sound-spatial-ecology-workshop-registration-72991697131">PSEMP Spatial Data Workshop</a>, Oct. 31, Edmonds</p>
+
+	    </td>
+          </tr>
+        </table>
+        </center>
+    </section>
+
+
+    <section class="slide">
+      <h2>Zones of bioacoustic impact from noise</h2>
+      <table>
+        <tr>
+          <td>
+            <ol>
+              <li>Injury (acoustic trauma, or stranding)
+              <li><b>Deafening (permanent or temporary threshold shift)</b>
+              <li><b>Behavioral change</b> (can also be due to physical proximity or interference)
+              <li><b>Masking</b> of signals and cues 
+              <li><b>Stress</b> (e.g. from chronic noise)
+              <li><b>Audibility</b>
+            </ol>
+          </td>
+          <td width="33%">
+            <img src="content/erbe-zones.png">
+          </td>
+        </tr>
+      </table>
+    </section>
+
+
+    <section class="slide">
+      <h2>Potential impacts of noise on southern resident killer whales (SRKWs)</h2>
+      <table>
+        <tr>
+          <td>
+            <ol>
+	      <li>Injury (L112? J34?)
+	      <li>Stranding (observed in other toothed whales, but not SRKWs)</li>
+              <li><b>Deafening (permanent or temporary)</b>
+                <ul>
+                <li>What explosives were used near SRKWs during the capture era, and previously?
+                <li>Pile driving?
+                    <audio preload="auto" controls="controls">
+			<source src="content/sounds/pile-driving-5sec.mp3" type="audio/mpeg">
+                    	<source src="content/sounds/pile-driving-5sec.ogg" type="audio/ogg">
+                  </audio>
+                <li>MFA sonar:<audio src="content/sounds/sonar-canadian.mp3" controls="true"></audio> (HMS Ottawa, 2012)
+                <li>Naval detonations:<audio src="content/sounds/detonation-dm211-2_06_2012.mp3" controls="true"></audio> (HMS Ottawa, 2012)
+                </ul>
+              <li><b>Behavioral change</b> (can also be due to physical proximity or interference)
+              <li><b>Masking</b> of signals and cues (mostly by vessels)
+              <li><b>Stress</b> (e.g. from chronic noise)
+            </ol>
+          </td>
+          <td width="33%">
+            <img src="content/right-whale-stress-911-rolland+2012.png">
+            Right whale stress fell after 9/11 decreased ship noise in 2001 (Rolland et al., 2012)
+          </td>
+        </tr>
+      </table>
+    </section>
+
+
+    <section class="slide">
+        <h2>Orcasound: as a partner in tracking SRKWs</h2>
+        <h5><u>Together</u> we can detect & protect SRKW (with cool tech, like... Localization)</h5>
+      <center>
+      <table>
+        <tr>
+        <td>
+        <center>
+                    <p><audio preload="auto" controls="controls">
+                    <source src="content/sounds/speedboat-sa.mp3" type="audio/mpeg">
+                    </audio></p>
+        </center>
+        </td>
+        <td align="center">Mother-calf conversation!</td>
+        </tr>
+        <tr>
+                    <td width="50%"><img src="content/speakingUpGraph.png" width="489" height="365" alt=""></td>
+                    <td width="50%">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U0Ue1zHK5ig?start=60" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</td>
+        </tr>
+        <tr>
+          <td> SRKWs "speak up" in noise from nearby boats <br>(<a href="https://www.researchgate.net/publication/23952764_Speaking_up_Killer_whales_Orcinus_orca_increase_their_call_amplitude_in_response_to_vessel_noise">Holt, Noren, Veirs, Emmons & Veirs, 2009</a>)</td>
+          <td align="center">2008: <a href="http://www.beamreach.org/wiki/index.php?title=Fall_2007_mother%2Bcalf_localization">ASA talk by V.Veirs</a></td>
+        </tr>
+      </table>
+      </center>
+      <p>
+    </section>
+
+
+
+    <section class="slide">
+	<h2>Orcasound for characterizing vessel noise</h2>
+	<h5>The bad news: Vessel noise can mask <b><u>both</u></b> calls &amp; clicks</h5>
+      <table>
+        <tr>
+          <td width="50%">
+            <img src="content/peerJ_RL.png" width="600" align="left">
+            <h4>Frequencies of vessel noise overlap <br>with SRKW hearing and signals</h4>
+            <center>
+            <p>Veirs, Veirs, & Wood (<a href="https://peerj.com/articles/1657/">2016, PeerJ</a>)</p>
+            <p>Typical ship:
+                <audio preload="auto" controls="controls">
+                    <source src="content/sounds/ship-clattering.mp3" type="audio/mpeg">
+                </audio>
+            </p>
+            </center>
+         </td>
+         <td>
+            <img src="content/freq-fig.jpg">
+            <p>Squeaky ship:
+                <audio preload="auto" controls="controls">
+                    <source src="content/sounds/squeaky-ship.mp3" type="audio/mpeg" title="squeaky ship">
+                </audio>
+            </p>
+         </td>
+       </tr>
+     </table>
+    </section>
+
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <!-- End extension snippets. -->
+</div>
+
+<!-- Required JS files. -->
+<script src="jquery.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+    $.deck('.slide');
+  });
+</script>
+</body>
+</html>
